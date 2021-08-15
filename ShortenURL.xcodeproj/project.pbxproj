@@ -19,6 +19,8 @@
 		E251E98B26C980A7005A509B /* ShortenURL.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E251E98926C980A7005A509B /* ShortenURL.xcdatamodeld */; };
 		E251E98D26C980A8005A509B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E251E98C26C980A8005A509B /* Assets.xcassets */; };
 		E251E99026C980A8005A509B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E251E98E26C980A8005A509B /* LaunchScreen.storyboard */; };
+		E29857CF26C98BEC001D9C4F /* Just.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29857CE26C98BEC001D9C4F /* Just.swift */; };
+		E29857D226C98D1C001D9C4F /* ShortURLModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29857D126C98D1C001D9C4F /* ShortURLModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		E251E98C26C980A8005A509B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E251E98F26C980A8005A509B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E251E99126C980A8005A509B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E29857CE26C98BEC001D9C4F /* Just.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Just.swift; sourceTree = "<group>"; };
+		E29857D126C98D1C001D9C4F /* ShortURLModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortURLModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,20 +86,62 @@
 		E251E97F26C980A7005A509B /* ShortenURL */ = {
 			isa = PBXGroup;
 			children = (
+				E29857D526C98D5F001D9C4F /* Helpers */,
+				E29857D426C98D30001D9C4F /* Controllers */,
+				E29857D326C98D2B001D9C4F /* ViewModels */,
+				E29857D026C98D08001D9C4F /* Models */,
 				E251E98026C980A7005A509B /* AppDelegate.swift */,
 				E251E98226C980A7005A509B /* SceneDelegate.swift */,
-				E251E98426C980A7005A509B /* ViewController.swift */,
-				E23F292526C981EA0082052B /* HistoryViewModel.swift */,
-				E23F292726C981F80082052B /* HistoryViewController.swift */,
 				E251E98626C980A7005A509B /* Main.storyboard */,
 				E251E98C26C980A8005A509B /* Assets.xcassets */,
 				E251E98E26C980A8005A509B /* LaunchScreen.storyboard */,
 				E251E99126C980A8005A509B /* Info.plist */,
 				E251E98926C980A7005A509B /* ShortenURL.xcdatamodeld */,
-				E23F292326C981D10082052B /* IndexViewModel.swift */,
-				E23F292926C982100082052B /* NetworkRequester.swift */,
+				E29857CD26C98BA4001D9C4F /* Just */,
 			);
 			path = ShortenURL;
+			sourceTree = "<group>";
+		};
+		E29857CD26C98BA4001D9C4F /* Just */ = {
+			isa = PBXGroup;
+			children = (
+				E29857CE26C98BEC001D9C4F /* Just.swift */,
+			);
+			path = Just;
+			sourceTree = "<group>";
+		};
+		E29857D026C98D08001D9C4F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E29857D126C98D1C001D9C4F /* ShortURLModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E29857D326C98D2B001D9C4F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E23F292526C981EA0082052B /* HistoryViewModel.swift */,
+				E23F292326C981D10082052B /* IndexViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E29857D426C98D30001D9C4F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E251E98426C980A7005A509B /* ViewController.swift */,
+				E23F292726C981F80082052B /* HistoryViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E29857D526C98D5F001D9C4F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E23F292926C982100082052B /* NetworkRequester.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		F82FC450C65A0C472F18B631 /* Frameworks */ = {
@@ -223,6 +269,8 @@
 				E251E98526C980A7005A509B /* ViewController.swift in Sources */,
 				E23F292626C981EA0082052B /* HistoryViewModel.swift in Sources */,
 				E251E98B26C980A7005A509B /* ShortenURL.xcdatamodeld in Sources */,
+				E29857CF26C98BEC001D9C4F /* Just.swift in Sources */,
+				E29857D226C98D1C001D9C4F /* ShortURLModel.swift in Sources */,
 				E23F292A26C982100082052B /* NetworkRequester.swift in Sources */,
 				E251E98126C980A7005A509B /* AppDelegate.swift in Sources */,
 				E251E98326C980A7005A509B /* SceneDelegate.swift in Sources */,
@@ -378,6 +426,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q5U9LJV46H;
 				INFOPLIST_FILE = ShortenURL/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -398,6 +447,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q5U9LJV46H;
 				INFOPLIST_FILE = ShortenURL/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

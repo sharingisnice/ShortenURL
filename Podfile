@@ -7,5 +7,7 @@ target 'ShortenURL' do
 
   # Pods for ShortenURL
   pod 'SnapKit'
+  pod 'NVActivityIndicatorView'
+  pod 'IQKeyboardManagerSwift'
 
 end

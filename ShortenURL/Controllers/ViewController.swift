@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         label.font = UIFont(name: "Poppins-Bold", size: 30)
         return label
     }()
-
+    
     
     let middleTitle: UILabel = {
         let label = UILabel()
@@ -63,7 +63,7 @@ class ViewController: UIViewController {
         field.layer.cornerRadius = 6
         field.textAlignment = .center
         return field
-
+        
     }()
     
     let shortenButton: UIButton = {
@@ -77,18 +77,17 @@ class ViewController: UIViewController {
     }()
     
     let viewModel = IndexViewModel()
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         addViews()
         setupUI()
-        setDatas()
         
         viewModel.delegate = self
     }
-
+    
     
     func addViews() {
         view.addSubview(topIcon)
@@ -141,7 +140,6 @@ class ViewController: UIViewController {
                 make.top.equalTo(bottomView.snp.top)
                 make.height.equalTo(128)
                 make.width.equalTo(237)
-                
             }
             
             shortenButton.snp.makeConstraints { make in
@@ -149,7 +147,6 @@ class ViewController: UIViewController {
                 make.left.equalTo(view.snp.left).offset(40)
                 make.height.equalTo(55)
                 make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-30)
-                
             }
             
             urlField.snp.makeConstraints { make in
@@ -157,16 +154,9 @@ class ViewController: UIViewController {
                 make.left.equalTo(view.snp.left).offset(40)
                 make.bottom.equalTo(shortenButton.snp.top).offset(-10)
                 make.height.equalTo(55)
-                
             }
             
-           
-
-        
         }
-        
-        
-        
     }
     
     
@@ -176,18 +166,25 @@ class ViewController: UIViewController {
     }
     
     
-    func setDatas() {
-        
+    func showAlertAction(title: String, message: String, shortURL: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Share", style: UIAlertAction.Style.default, handler: {(action:UIAlertAction!) in
+            print("Action")
+            
+            UIPasteboard.general.string = shortURL
+        }))
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
-
+    
 }
 
 extension ViewController: IndexViewModelDelegate {
-    func sendShortenedURL(result: String) {
-        
-        
+    func sendShortenedURL(result: String) {        
         DispatchQueue.main.async {
             self.view.stopLoading()
+            self.showAlertAction(title: "Success", message: "Here's your short URL: \(result)", shortURL: result)
+            
         }
     }
     

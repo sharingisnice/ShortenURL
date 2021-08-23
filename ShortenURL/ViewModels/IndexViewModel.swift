@@ -14,20 +14,24 @@ protocol IndexViewModelDelegate {
 class IndexViewModel {
     
     var delegate: IndexViewModelDelegate?
-    
-    let apiURL = Bundle.main.object(forInfoDictionaryKey: "ApiURL") as! String
+    var network = NetworkRequester()
     
     func shortenURLPressed(text: String) {
         print("received text: \(text)")
-        let urlString = apiURL + text
+        let urlString = network.urlString + text
         
-        Just.get(urlString, asyncCompletionHandler:  { result in
+        network.dataRequest(with: urlString, objectType: ShortURLModel.self) { result in
+            var shortURLResult = ""
             
-            print(result.json)
+            switch result {
+            case .success(let resultObject):
+                shortURLResult = resultObject.result.shortLink
+            case .failure(let error):
+                print(error)
+            }
             
-            self.delegate?.sendShortenedURL(result:"")
-        })
-
+            self.delegate?.sendShortenedURL(result:shortURLResult)
+        }
     }
     
     
